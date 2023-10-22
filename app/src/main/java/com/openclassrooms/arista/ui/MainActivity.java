@@ -1,5 +1,6 @@
 package com.openclassrooms.arista.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -22,7 +23,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String SELECTED_MENU_ITEM = "selected_menu_item";
+
     private ActivityMainBinding binding;
+    private int selectedMenuItemId = R.id.nav_user_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +35,31 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-
         binding.bottomNavigation.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserDataFragment()).commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserDataFragment()).commit();
+        } else {
+            selectedMenuItemId = savedInstanceState.getInt(SELECTED_MENU_ITEM, R.id.nav_user_data);
+            binding.bottomNavigation.setSelectedItemId(selectedMenuItemId);
+        }
+    }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SELECTED_MENU_ITEM, selectedMenuItemId);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
         Fragment selectedFragment = null;
+        selectedMenuItemId = item.getItemId();
 
-        if (item.getItemId() == R.id.nav_user_data) {
+        if (selectedMenuItemId == R.id.nav_user_data) {
             selectedFragment = new UserDataFragment();
-        } else if (item.getItemId() == R.id.nav_exercise) {
+        } else if (selectedMenuItemId == R.id.nav_exercise) {
             selectedFragment = new ExerciseFragment();
-        } else if (item.getItemId() == R.id.nav_sleep) {
+        } else if (selectedMenuItemId == R.id.nav_sleep) {
             selectedFragment = new SleepFragment();
         }
 
