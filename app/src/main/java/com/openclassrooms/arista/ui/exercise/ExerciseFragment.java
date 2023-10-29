@@ -127,7 +127,7 @@ public class ExerciseFragment extends Fragment implements DeleteExerciseInterfac
         }
 
         ExerciseCategory category = (ExerciseCategory) categorySpinner.getSelectedItem();
-        Exercise newExercise = new Exercise(LocalDateTime.now(), duration, category, intensity);
+        Exercise newExercise = new Exercise(System.currentTimeMillis(), LocalDateTime.now(), duration, category, intensity);
         viewModel.addNewExercise(newExercise);
     }
 

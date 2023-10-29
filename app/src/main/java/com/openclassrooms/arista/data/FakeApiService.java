@@ -26,9 +26,9 @@ public class FakeApiService {
 
     private static List<Exercise> exerciseData = new ArrayList<>(
             Arrays.asList(
-                    new Exercise(LocalDateTime.now().minusHours(5), 30, ExerciseCategory.Running, 7),
-                    new Exercise(LocalDateTime.now().minusDays(1).minusHours(3), 45, ExerciseCategory.Natation, 6),
-                    new Exercise(LocalDateTime.now().minusDays(2).minusHours(4), 60, ExerciseCategory.Football, 8)
+                    new Exercise(1,LocalDateTime.now().minusHours(5), 30, ExerciseCategory.Running, 7),
+                    new Exercise(2,LocalDateTime.now().minusDays(1).minusHours(3), 45, ExerciseCategory.Natation, 6),
+                    new Exercise(3,LocalDateTime.now().minusDays(2).minusHours(4), 60, ExerciseCategory.Football, 8)
             ));
 
     // CRUD for User

@@ -1,21 +1,31 @@
 package com.openclassrooms.arista.domain.model;
 
-
 import org.threeten.bp.LocalDateTime;
 
 import java.util.Objects;
 
 public class Exercise {
+
+    private long id;
     private LocalDateTime startTime;
     private int duration;
     private ExerciseCategory category;
     private int intensity;
 
-    public Exercise(LocalDateTime startTime, int duration, ExerciseCategory category, int intensity) {
+    public Exercise(long id, LocalDateTime startTime, int duration, ExerciseCategory category, int intensity) {
+        this.id = id;
         this.startTime = startTime;
         this.duration = duration;
         this.category = category;
         this.intensity = intensity;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDateTime getStartTime() {
@@ -55,11 +65,12 @@ public class Exercise {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Exercise exercise = (Exercise) o;
-        return duration == exercise.duration && intensity == exercise.intensity && Objects.equals(startTime, exercise.startTime) && category == exercise.category;
+        return id == exercise.id && duration == exercise.duration && intensity == exercise.intensity && Objects.equals(startTime, exercise.startTime) && category == exercise.category;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(startTime, duration, category, intensity);
+        return Objects.hash(id, startTime, duration, category, intensity);
     }
+
 }
