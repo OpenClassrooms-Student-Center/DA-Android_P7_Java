@@ -1,7 +1,7 @@
 package com.openclassrooms.arista.domain.model;
 
 
-import org.threeten.bp.LocalDateTime;
+import java.time.LocalDateTime;
 
 public class Sleep {
     private LocalDateTime startTime;

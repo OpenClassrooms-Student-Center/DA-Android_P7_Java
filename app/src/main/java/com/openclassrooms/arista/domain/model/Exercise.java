@@ -1,6 +1,6 @@
 package com.openclassrooms.arista.domain.model;
 
-import org.threeten.bp.LocalDateTime;
+import java.time.LocalDateTime;
 
 import java.util.Objects;
 

@@ -2,11 +2,7 @@ package com.openclassrooms.arista.data.repository;
 
 import com.openclassrooms.arista.data.FakeApiService;
 import com.openclassrooms.arista.domain.model.Exercise;
-
-import org.threeten.bp.LocalDateTime;
-
 import java.util.List;
-import java.util.Optional;
 
 public class ExerciseRepository {
 

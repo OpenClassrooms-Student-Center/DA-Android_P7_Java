@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.openclassrooms.arista.R;
 import com.openclassrooms.arista.domain.model.Exercise;
 
-import org.threeten.bp.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatter;
 
 import java.util.List;
 

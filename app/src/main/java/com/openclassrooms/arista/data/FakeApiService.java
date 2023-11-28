@@ -5,7 +5,7 @@ import com.openclassrooms.arista.domain.model.ExerciseCategory;
 import com.openclassrooms.arista.domain.model.Sleep;
 import com.openclassrooms.arista.domain.model.User;
 
-import org.threeten.bp.LocalDateTime;
+import java.time.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,19 +15,19 @@ import java.util.Optional;
 public class FakeApiService {
 
     // Static data
-    private static User user = new User("John Doe", "johndoe@example.com", "password123");
+    private static User user = new User("John Doe", "johndoe@example.com");
 
-    private static List<Sleep> sleepData = new ArrayList<>(
+    private static final List<Sleep> sleepData = new ArrayList<>(
             Arrays.asList(
                     new Sleep(LocalDateTime.now().minusDays(1), 7, 8),
                     new Sleep(LocalDateTime.now().minusDays(2), 6, 5),
                     new Sleep(LocalDateTime.now().minusDays(3), 8, 9)
             ));
 
-    private static List<Exercise> exerciseData = new ArrayList<>(
+    private static final List<Exercise> exerciseData = new ArrayList<>(
             Arrays.asList(
                     new Exercise(1,LocalDateTime.now().minusHours(5), 30, ExerciseCategory.Running, 7),
-                    new Exercise(2,LocalDateTime.now().minusDays(1).minusHours(3), 45, ExerciseCategory.Natation, 6),
+                    new Exercise(2,LocalDateTime.now().minusDays(1).minusHours(3), 45, ExerciseCategory.Swimming, 6),
                     new Exercise(3,LocalDateTime.now().minusDays(2).minusHours(4), 60, ExerciseCategory.Football, 8)
             ));
 
